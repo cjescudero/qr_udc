@@ -6,8 +6,11 @@ import io
 from urllib.parse import urlparse
 import base64
 import re
+import os
 
-app = FastAPI(title="Xerador de Códigos QR - UDC")
+app = FastAPI(title="Xerador de Códigos QR - UDC", root_path="/qr_udc")
+static_dir = os.path.join(os.path.dirname(__file__), "static")
+app.mount("/qr_udc", StaticFiles(directory=static_dir), name="qr_udc_static")
 
 def validar_dominio_udc(texto: str) -> bool:
     """Valida si la URL pertenece a los dominios permitidos de la UDC."""
@@ -69,6 +72,7 @@ def formulario():
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Xerador de QR da UDC</title>
+            <link rel="icon" href="/qr_udc/favicon.ico" type="image/x-icon">
             <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
             <style>
                 :root {
@@ -322,7 +326,7 @@ def formulario():
             </header>
             
             <div class="container">
-                <form action="/xerar_qr" method="post" id="qrForm">
+                <form action="./xerar_qr" method="post" id="qrForm">
                     <div class="form-group">
                         <label>Título (opcional)</label>
                         <input type="text" name="titulo" placeholder="Título para o código QR"/>
@@ -630,6 +634,25 @@ def descargar_qr(qr_base64: str):
         headers={"Content-Disposition": "attachment; filename=qr_udc.png"}
     )
 
-if __name__ == "__main__":
+def run_server():
+    """Función punto de entrada para ejecutar el servidor."""
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    import os
+    from dotenv import load_dotenv
+
+    # Cargar variables de entorno
+    load_dotenv()
+    
+    # Configuración base
+    config = {
+        "app": app,
+        "host": "127.0.0.1",
+        "port": int(os.getenv("PORT", "3002")),
+        "log_level": "info",
+        "access_log": True
+    }
+    
+    uvicorn.run(**config)
+
+if __name__ == "__main__":
+    run_server()
