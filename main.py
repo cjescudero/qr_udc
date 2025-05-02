@@ -612,7 +612,7 @@ def xerar_qr(
                     <a href="data:image/png;base64,{qr_base64}" download="{nombre_archivo}.png" class="button button-primary">
                         Descargar QR
                     </a>
-                    <a href="/" class="button button-secondary">
+                    <a href="./" class="button button-secondary">
                         Xerar outro QR
                     </a>
                 </div>
