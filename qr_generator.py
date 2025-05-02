@@ -26,7 +26,7 @@ def añadir_titulo(imagen: Image.Image, titulo: str, color_rgb: tuple) -> Image.
         return imagen
 
     # Crear una nueva imagen con espacio para el título
-    padding_titulo = 40
+    padding_titulo = 60  # Aumentado para dar más espacio al título
     nueva_altura = imagen.height + padding_titulo
     nueva_imagen = Image.new('RGB', (imagen.width, nueva_altura), 'white')
     
@@ -36,20 +36,19 @@ def añadir_titulo(imagen: Image.Image, titulo: str, color_rgb: tuple) -> Image.
     # Añadir el título
     draw = ImageDraw.Draw(nueva_imagen)
     
-    # Intentar usar una fuente del sistema, si no está disponible usar la por defecto
+    # Usar Roboto Bold incluida en el proyecto
     try:
-        font_path = "/System/Library/Fonts/Helvetica.ttc"  # Para macOS
-        if not os.path.exists(font_path):
-            font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"  # Para Linux
-        font = ImageFont.truetype(font_path, 24)
-    except:
+        font_path = "fonts/Roboto-Bold.ttf"
+        font = ImageFont.truetype(font_path, 32)
+    except Exception as e:
+        print(f"Error al cargar la fuente: {e}")
         font = ImageFont.load_default()
 
     # Centrar el texto
     bbox = draw.textbbox((0, 0), titulo, font=font)
     text_width = bbox[2] - bbox[0]
     x = (imagen.width - text_width) // 2
-    y = 10  # Padding superior para el título
+    y = 15  # Padding superior para el título
     
     # Dibujar el texto
     draw.text((x, y), titulo, fill=color_rgb, font=font)
