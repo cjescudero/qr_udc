@@ -92,6 +92,9 @@ def formulario():
                     line-height: 1.6;
                     background-color: var(--udc-light);
                     color: #333;
+                    min-height: 100vh;
+                    display: flex;
+                    flex-direction: column;
                 }
                 
                 .header {
@@ -277,6 +280,27 @@ def formulario():
                     box-shadow: none;
                 }
                 
+                .footer {
+                    margin-top: auto;
+                    padding: 1rem;
+                    background-color: var(--udc-white);
+                    border-top: 1px solid rgba(0,0,0,0.1);
+                    text-align: center;
+                    font-size: 0.9rem;
+                    color: var(--udc-gray);
+                }
+                
+                .footer a {
+                    color: var(--udc-primary);
+                    text-decoration: none;
+                    transition: color 0.3s ease;
+                }
+                
+                .footer a:hover {
+                    color: var(--udc-primary-dark);
+                    text-decoration: underline;
+                }
+                
                 @media (max-width: 768px) {
                     .container {
                         margin: 1rem;
@@ -339,6 +363,10 @@ def formulario():
                     <button type="submit">Xerar código QR</button>
                 </form>
             </div>
+
+            <footer class="footer">
+                <p>© 2025 Universidade da Coruña - <a href="https://github.com/cjescudero/qr_udc" target="_blank">Repositorio en GitHub</a> - Licenza <a href="https://github.com/cjescudero/qr_udc/blob/main/LICENSE" target="_blank">MIT</a></p>
+            </footer>
 
             <script>
                 function validarDominioUDC(url) {
@@ -416,6 +444,9 @@ def xerar_qr(
                     line-height: 1.6;
                     background-color: var(--udc-light);
                     color: #333;
+                    min-height: 100vh;
+                    display: flex;
+                    flex-direction: column;
                 }}
                 
                 .header {{
@@ -515,6 +546,27 @@ def xerar_qr(
                     transform: translateY(-1px);
                 }}
                 
+                .footer {{
+                    margin-top: auto;
+                    padding: 1rem;
+                    background-color: var(--udc-white);
+                    border-top: 1px solid rgba(0,0,0,0.1);
+                    text-align: center;
+                    font-size: 0.9rem;
+                    color: var(--udc-gray);
+                }}
+                
+                .footer a {{
+                    color: var(--udc-primary);
+                    text-decoration: none;
+                    transition: color 0.3s ease;
+                }}
+                
+                .footer a:hover {{
+                    color: var(--udc-primary-dark);
+                    text-decoration: underline;
+                }}
+                
                 @media (max-width: 768px) {{
                     .container {{
                         margin: 1rem;
@@ -561,6 +613,10 @@ def xerar_qr(
                     </a>
                 </div>
             </div>
+
+            <footer class="footer">
+                <p>© 2025 Universidade da Coruña - <a href="https://github.com/cjescudero/qr_udc" target="_blank">Repositorio en GitHub</a> - Licenza <a href="https://github.com/cjescudero/qr_udc/blob/main/LICENSE" target="_blank">MIT</a></p>
+            </footer>
         </body>
     </html>
     """
