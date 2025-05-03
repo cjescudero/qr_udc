@@ -344,7 +344,7 @@ def formulario():
                         <label>Estilo</label>
                         <div class="style-selectors">
                             <div class="selector">
-                                <label>QR:</label>
+                                <label>QR</label>
                                 <div class="button-group">
                                     <input type="radio" id="qr_negro" name="estilo" value="blanco_negro" checked class="style-radio">
                                     <label for="qr_negro" class="style-button">Negro</label>
@@ -353,7 +353,7 @@ def formulario():
                                 </div>
                             </div>
                             <div class="selector">
-                                <label>Logo:</label>
+                                <label>Logo UDC</label>
                                 <div class="button-group">
                                     <input type="radio" id="logo_negro" name="logo_color" value="false" class="style-radio">
                                     <label for="logo_negro" class="style-button">Negro</label>
@@ -369,7 +369,8 @@ def formulario():
             </div>
 
             <footer class="footer">
-                <p>© 2025 Universidade da Coruña - <a href="https://github.com/cjescudero/qr_udc" target="_blank">Repositorio en GitHub</a> - Licenza <a href="https://github.com/cjescudero/qr_udc/blob/main/LICENSE" target="_blank">MIT</a></p>
+                <img src="/qr_udc/static/logo_udc_color.png" alt="Logo UDC" style="height:32px;vertical-align:middle;margin-right:10px;">
+                <p style="display:inline-block;vertical-align:middle;">© 2025 Universidade da Coruña - <a href="https://github.com/cjescudero/qr_udc" target="_blank">Repositorio en GitHub</a> - Licenza <a href="https://github.com/cjescudero/qr_udc/blob/main/LICENSE" target="_blank">MIT</a></p>
             </footer>
 
             <script>
@@ -619,7 +620,8 @@ def xerar_qr(
             </div>
 
             <footer class="footer">
-                <p>© 2025 Universidade da Coruña - <a href="https://github.com/cjescudero/qr_udc" target="_blank">Repositorio en GitHub</a> - Licenza <a href="https://github.com/cjescudero/qr_udc/blob/main/LICENSE" target="_blank">MIT</a></p>
+                <img src="/qr_udc/static/logo_udc_color.png" alt="Logo UDC" style="height:32px;vertical-align:middle;margin-right:10px;">
+                <p style="display:inline-block;vertical-align:middle;">© 2025 Universidade da Coruña - <a href="https://github.com/cjescudero/qr_udc" target="_blank">Repositorio en GitHub</a> - Licenza <a href="https://github.com/cjescudero/qr_udc/blob/main/LICENSE" target="_blank">MIT</a></p>
             </footer>
         </body>
     </html>

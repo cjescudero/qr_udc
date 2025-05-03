@@ -84,7 +84,7 @@ def generar_qr_con_logo(
     img_qr = img_qr.convert("RGB")
 
     # Preparar el logo según la preferencia
-    logo_path = "logo_udc_color.png" if logo_color else "logo_udc.png"
+    logo_path = "static/logo_udc_color.png" if logo_color else "static/logo_udc.png"
     logo = Image.open(logo_path).convert("RGBA")
     
     # Calcular el tamaño máximo recomendado para el logo (25% del QR)
