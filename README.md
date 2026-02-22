@@ -6,7 +6,7 @@ Aplicación web para xerar códigos QR personalizados para URLs dos dominios da 
 
 ## Características
 
-- Xeración de códigos QR para URLs dos dominios udc.es e udc.gal
+- Xeración de códigos QR para URLs dos dominios udc.es, udc.gal e udcgal-my.sharepoint.com
 - Personalización do estilo do código QR (negro ou cor corporativa)
 - Opción de logo UDC en negro ou cor
 - Interface web intuitiva e responsive
@@ -76,7 +76,7 @@ http://localhost:3002/qr_udc
 ```
 
 3. Na interface web:
-   - Introduce unha URL válida dos dominios udc.es ou udc.gal
+   - Introduce unha URL válida dos dominios udc.es, udc.gal ou udcgal-my.sharepoint.com
    - (Opcional) Engade un título para o código QR
    - Selecciona o estilo do código QR (negro ou cor)
    - Selecciona o estilo do logo (negro ou cor)

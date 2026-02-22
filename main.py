@@ -19,7 +19,11 @@ def validar_dominio_udc(texto: str) -> bool:
             return False
         parsed = urlparse(texto)
         dominio = parsed.netloc.lower()
-        return dominio.endswith('udc.es') or dominio.endswith('udc.gal')
+        return (
+            dominio.endswith('udc.es')
+            or dominio.endswith('udc.gal')
+            or dominio.endswith('udcgal-my.sharepoint.com')
+        )
     except:
         return False
 
@@ -336,8 +340,8 @@ def formulario():
                     <div class="form-group">
                         <label>URL</label>
                         <input type="url" name="texto" id="urlInput" required placeholder="https://www.udc.es/..." />
-                        <div class="nota">Só se permiten URLs dos dominios udc.es e udc.gal</div>
-                        <div class="error-message" id="urlError">A URL debe pertencer aos dominios udc.es ou udc.gal</div>
+                        <div class="nota">Só se permiten URLs dos dominios udc.es, udc.gal e udcgal-my.sharepoint.com</div>
+                        <div class="error-message" id="urlError">A URL debe pertencer aos dominios udc.es, udc.gal ou udcgal-my.sharepoint.com</div>
                     </div>
                     
                     <div class="form-group">
@@ -378,7 +382,7 @@ def formulario():
                     try {
                         const urlObj = new URL(url);
                         const dominio = urlObj.hostname.toLowerCase();
-                        return dominio.endsWith('udc.es') || dominio.endsWith('udc.gal');
+                        return dominio.endsWith('udc.es') || dominio.endsWith('udc.gal') || dominio.endsWith('udcgal-my.sharepoint.com');
                     } catch {
                         return false;
                     }
@@ -413,7 +417,7 @@ def xerar_qr(
     if not validar_dominio_udc(texto):
         raise HTTPException(
             status_code=400,
-            detail="Só se permiten URLs dos dominios udc.es e udc.gal"
+            detail="Só se permiten URLs dos dominios udc.es, udc.gal e udcgal-my.sharepoint.com"
         )
     
     qr_bytes = generar_qr_con_logo(texto, estilo=estilo, logo_color=logo_color, titulo=titulo)
